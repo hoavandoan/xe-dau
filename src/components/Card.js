@@ -1,26 +1,28 @@
 import React from 'react';
-import CardView from 'react-native-cardview'
 import { StyleSheet, Text, View, SafeAreaView, StatusBar, TouchableOpacity } from 'react-native';
+import {Card, Surface} from "react-native-paper";
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
-const Card = ({children}) => {
+const Cards = ({children}) => {
     return (
-        <CardView cardElevation={2}
-                  cardMaxElevation={2}
-                  style={styles.card}
-        >
-            {children}
-        </CardView>
+        <View>
+            <Surface style={styles.surface}>
+                {children}
+            </Surface>
+        </View>
+
     );
 };
 
-export default Card;
+export default Cards;
 const styles = StyleSheet.create({
-    card:{
+    surface: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        elevation: 3,
         margin:15,
         padding: 10,
         marginBottom:0,
-        marginTop:0,
         flex: 1
-    }
+    },
 });
