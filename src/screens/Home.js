@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View,Linking} from 'react-native';
 import {FlatList} from "react-navigation";
 import {grey50, grey600} from "react-native-material-ui/src/styles/colors";
 import {Feather, Ionicons} from "@expo/vector-icons";
@@ -14,39 +14,39 @@ const Home = () => {
     const [data] = React.useState([
         {
             carOwner: 'Long Hải',
-            phone: '090132132545',
+            phone: '0901321325',
             address: 'Nga bach, Nga Son',
-            timeStart: 1576750888721,
-            timeEnd: 1576750888721,
+            timeStart: '11h:30',
+            timeEnd: '6h',
             image: 'https://static.vexere.com/c/i/16211/xe-tien-tien-VeXeRe-jOA57FL-1000x600.jpeg'
         },
         {
             carOwner: 'Dậu',
-            phone: '090132132545',
+            phone: '0901321325',
             address: 'Nga Thach, Nga Son',
-            timeStart: 1576750888721,
-            timeEnd: 1576750888721,
+            timeStart: '11h:30',
+            timeEnd: '6h',
             image: 'https://limousinevn.vn/wp-content/uploads/2018/01/phuong-nguyen-limousine.jpg'
         },
         {
             carOwner: 'Nham',
-            phone: '090132132545',
+            phone: '0901321325',
             address: 'Thi Tran, Nga Son',
-            timeStart: 1576750888721,
-            timeEnd: 1576750888721,
+            timeStart: '6h',
+            timeEnd: '13h:30',
             image: 'http://xedulich.danang.vn/public/thue-xe-du-lich-24-cho-da-nang/dich-vu-thue-xe-du-lich-24-cho-gia-re-tai-da-nang.jpg'
         },
         {
             carOwner: 'Tien Tien',
-            phone: '090132132545',
+            phone: '0901321325',
             address: 'Nga Yen, Nga Son',
-            timeStart: 1576750888721,
-            timeEnd: 1576750888721,
+            timeStart: '6h',
+            timeEnd: '13h:30',
             image: 'https://static.vexere.com/c/i/16211/xe-tien-tien-VeXeRe-jOA57FL-1000x600.jpeg'
         },
         {
             carOwner: 'Tien Tien',
-            phone: '090132132545',
+            phone: '0901321325',
             address: 'Nga Yen, Nga Son',
             timeStart: 1576750888721,
             timeEnd: 1576750888721,
@@ -69,18 +69,21 @@ const Home = () => {
                             <Text style={{fontSize: 14, color: grey600}}>{item.address}</Text>
                         </View>
                         <View style={{flex: 3, marginLeft: 15, backgroundColor: grey50}}>
-                            <Text>Nga Son di: {moment(item.timeStart).format("HH:mm")}</Text>
-                            <Text>Ha Noi ve: {moment(item.timeEnd).format("HH:mm")}</Text>
+                            <Text>Nga Son di: {item.timeStart}</Text>
+                            <Text>Ha Noi ve: {item.timeEnd}</Text>
                         </View>
                         <View style={styles.phone}>
                             <Feather name="phone-call" size={16} color="black"/>
-                            <Text> {item.phone}</Text>
+                            <Text  onPress={()=>callPhone(item.phone)}> {item.phone}</Text>
                         </View>
                     </View>
                 </View>
 
             </Card>
         )
+    }
+    const  callPhone = (phone)=>{
+        Linking.openURL(`tel:${phone}`)
     }
     return (
         <View style={styles.container}>
