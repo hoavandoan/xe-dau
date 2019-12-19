@@ -11,32 +11,17 @@ const TabNavigator = createMaterialBottomTabNavigator(
     {
         Home: {
             screen: Home,
+            navigationOptions:{
+            }
 
         },
         Search:  Search
     },
     {
         initialRouteName: 'Home',
+        activeColor: '#f0edf6',
+        inactiveColor: '#226557',
+        barStyle: {backgroundColor: '#3BAD87'},
     }
 )
 export default createAppContainer(TabNavigator)
-Home.navigationOptions = ({navigation}) => ({
-    headerTintColor: 'rgba(255,255,255,0.8)',
-    headerTitle: 'Nhà xe',
-    headerBackground: (
-        <LinearGradient
-            colors={['#4cbdd7', '#3378C3']}
-            start={{x: 0, y: 1}}
-            end={{x: 1, y: 1}}
-            style={{flex: 1}}
-        />
-    ),
-    headerRight: (
-        <TouchableOpacity onPress={() => navigation.navigate('Search')}>
-            <Ionicons name="ios-search" size={25} color="white"/>
-        </TouchableOpacity>
-    ),
-    headerRightContainerStyle: {
-        paddingRight: 10
-    },
-})

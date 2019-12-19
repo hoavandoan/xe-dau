@@ -6,6 +6,9 @@ import {Feather, Ionicons} from "@expo/vector-icons";
 import {LinearGradient} from "expo-linear-gradient";
 import Search from "./Search";
 import Card from "../components/Card";
+import {createStackNavigator} from "react-navigation-stack";
+import {createAppContainer} from "react-navigation";
+import moment from 'moment'
 
 const Home = () => {
     const [data] = React.useState([
@@ -13,35 +16,40 @@ const Home = () => {
             carOwner: 'Long Hải',
             phone: '090132132545',
             address: 'Nga bach, Nga Son',
-            timeStart: '20191212',
+            timeStart: 1576750888721,
+            timeEnd: 1576750888721,
             image: 'https://static.vexere.com/c/i/16211/xe-tien-tien-VeXeRe-jOA57FL-1000x600.jpeg'
         },
         {
             carOwner: 'Dậu',
             phone: '090132132545',
             address: 'Nga Thach, Nga Son',
-            timeStart: '20191212',
+            timeStart: 1576750888721,
+            timeEnd: 1576750888721,
             image: 'https://limousinevn.vn/wp-content/uploads/2018/01/phuong-nguyen-limousine.jpg'
         },
         {
             carOwner: 'Nham',
             phone: '090132132545',
             address: 'Thi Tran, Nga Son',
-            timeStart: '20191212',
+            timeStart: 1576750888721,
+            timeEnd: 1576750888721,
             image: 'http://xedulich.danang.vn/public/thue-xe-du-lich-24-cho-da-nang/dich-vu-thue-xe-du-lich-24-cho-gia-re-tai-da-nang.jpg'
         },
         {
             carOwner: 'Tien Tien',
             phone: '090132132545',
             address: 'Nga Yen, Nga Son',
-            timeStart: '20191212',
+            timeStart: 1576750888721,
+            timeEnd: 1576750888721,
             image: 'https://static.vexere.com/c/i/16211/xe-tien-tien-VeXeRe-jOA57FL-1000x600.jpeg'
         },
         {
             carOwner: 'Tien Tien',
             phone: '090132132545',
             address: 'Nga Yen, Nga Son',
-            timeStart: '20191212',
+            timeStart: 1576750888721,
+            timeEnd: 1576750888721,
             image: 'https://static.vexere.com/c/i/16211/xe-tien-tien-VeXeRe-jOA57FL-1000x600.jpeg'
         }
     ])
@@ -61,7 +69,8 @@ const Home = () => {
                             <Text style={{fontSize: 14, color: grey600}}>{item.address}</Text>
                         </View>
                         <View style={{flex: 3, marginLeft: 15, backgroundColor: grey50}}>
-
+                            <Text>Nga Son di: {moment(item.timeStart).format("HH:mm")}</Text>
+                            <Text>Ha Noi ve: {moment(item.timeEnd).format("HH:mm")}</Text>
                         </View>
                         <View style={styles.phone}>
                             <Feather name="phone-call" size={16} color="black"/>
@@ -84,7 +93,26 @@ const Home = () => {
     );
 };
 
-export default Home
+const HomeNavigator = createStackNavigator(
+    {
+        Home: Home,
+        Search: Search
+    },
+    {
+        initialRouteName: 'Home',
+        /* The header config from HomeScreen is now here */
+        defaultNavigationOptions: {
+            headerStyle: {
+                backgroundColor: '#f4511e',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                fontWeight: 'bold',
+            },
+        },
+    }
+)
+export default createAppContainer(HomeNavigator)
 Home.navigationOptions = ({navigation}) => ({
     headerTintColor: 'rgba(255,255,255,0.8)',
     headerTitle: 'Nhà xe',
