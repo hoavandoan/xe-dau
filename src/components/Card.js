@@ -1,14 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView, StatusBar, TouchableOpacity } from 'react-native';
-import {Card, Surface} from "react-native-paper";
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {StyleSheet, View} from 'react-native';
+import {Surface} from "react-native-paper";
 
 const Cards = ({children}) => {
     return (
         <View>
-            <Surface style={styles.surface}>
+            <View style={styles.surface}>
                 {children}
-            </Surface>
+            </View>
         </View>
 
     );
@@ -20,9 +19,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         elevation: 3,
-        margin:15,
-        padding: 10,
-        marginBottom:0,
-        flex: 1
+        margin: 15,
+        padding: 15,
+        marginBottom: 0,
+        flex: 1,
+        borderTopEndRadius: 15,
+        borderTopStartRadius: 15,
+        borderBottomStartRadius: 15,
+        borderBottomEndRadius: 15,
+        backgroundColor: '#fff',
+        shadowOpacity: 0.1,
     },
 });

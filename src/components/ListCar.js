@@ -1,6 +1,6 @@
 import React from 'react';
 import {Image, Linking, StyleSheet, Text, View} from "react-native";
-import {grey50, grey600} from "react-native-material-ui/src/styles/colors";
+import {grey100, grey200, grey50, grey600} from "react-native-material-ui/src/styles/colors";
 import {Feather} from "@expo/vector-icons";
 import {FlatList} from "react-navigation";
 import Card from './Card'
@@ -56,10 +56,11 @@ const ListCar = () => {
     const renderItem = ({item, index}) => {
         return (
             <Card key={index}>
+
                 <View style={styles.card}>
                     <View style={styles.cardImage}>
                         <Image
-                            style={{width: '100%', height: '100%', resizeMode: 'stretch'}}
+                            style={{width: '100%', height: '100%', resizeMode: 'stretch', borderRadius: 15}}
                             source={{uri: item.image}}
                         />
                     </View>
@@ -90,11 +91,14 @@ const ListCar = () => {
     }
     return (
         <View style={styles.container}>
-            <FlatList
-                data={data}
-                renderItem={renderItem}
-                keyExtractor={(item, index) => index.toString()}
-            />
+
+            <View style={{width: '100%', height: '100%', backgroundColor: grey200, borderTopStartRadius: 15, borderTopEndRadius: 15}}>
+                <FlatList
+                    data={data}
+                    renderItem={renderItem}
+                    keyExtractor={(item, index) => index.toString()}
+                />
+            </View>
         </View>
     );
 };
@@ -103,7 +107,7 @@ export default ListCar;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#2196f3',
     },
     card: {
         height: 150,

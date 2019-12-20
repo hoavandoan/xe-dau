@@ -18,6 +18,8 @@ function HomeStackScreen() {
                     options={({navigation, route}) => ({
                         headerStyle: {
                             backgroundColor: '#2196f3',
+                            shadowOpacity: 0,
+                            borderBottomWidth: 0,
                         },
                         headerTintColor: '#fff',
                         headerTitleStyle: {
@@ -30,7 +32,7 @@ function HomeStackScreen() {
                             <TouchableOpacity onPress={() => navigation.navigate('Search')}>
                                 <Ionicons name="ios-search" size={25} color="white"/>
                             </TouchableOpacity>
-                        )
+                        ),
                     })}
                 />
                 <Tab.Screen
