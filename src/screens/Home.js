@@ -18,7 +18,8 @@ const Home = () => {
             address: 'Nga bach, Nga Son',
             timeStart: '11h:30',
             timeEnd: '6h',
-            image: 'https://static.vexere.com/c/i/16211/xe-tien-tien-VeXeRe-jOA57FL-1000x600.jpeg'
+            image: 'https://static.vexere.com/c/i/16211/xe-tien-tien-VeXeRe-jOA57FL-1000x600.jpeg',
+            category: 'Xe Khách'
         },
         {
             carOwner: 'Dậu',
@@ -26,7 +27,8 @@ const Home = () => {
             address: 'Nga Thach, Nga Son',
             timeStart: '11h:30',
             timeEnd: '6h',
-            image: 'https://limousinevn.vn/wp-content/uploads/2018/01/phuong-nguyen-limousine.jpg'
+            image: 'https://limousinevn.vn/wp-content/uploads/2018/01/phuong-nguyen-limousine.jpg',
+            category: 'Xe Dù'
         },
         {
             carOwner: 'Nham',
@@ -34,7 +36,8 @@ const Home = () => {
             address: 'Thi Tran, Nga Son',
             timeStart: '6h',
             timeEnd: '13h:30',
-            image: 'http://xedulich.danang.vn/public/thue-xe-du-lich-24-cho-da-nang/dich-vu-thue-xe-du-lich-24-cho-gia-re-tai-da-nang.jpg'
+            image: 'http://xedulich.danang.vn/public/thue-xe-du-lich-24-cho-da-nang/dich-vu-thue-xe-du-lich-24-cho-gia-re-tai-da-nang.jpg',
+            category: 'Xe Taxi'
         },
         {
             carOwner: 'Tien Tien',
@@ -50,7 +53,8 @@ const Home = () => {
             address: 'Nga Yen, Nga Son',
             timeStart: 1576750888721,
             timeEnd: 1576750888721,
-            image: 'https://static.vexere.com/c/i/16211/xe-tien-tien-VeXeRe-jOA57FL-1000x600.jpeg'
+            image: 'https://static.vexere.com/c/i/16211/xe-tien-tien-VeXeRe-jOA57FL-1000x600.jpeg',
+            category: 'Xe Khach'
         }
     ])
     const renderItem = ({item, index}) => {
@@ -65,7 +69,10 @@ const Home = () => {
                     </View>
                     <View style={[styles.infoCar, {flex: 1}]}>
                         <View style={{flex: 2, marginLeft: 15}}>
-                            <Text style={{fontWeight: 'bold', fontSize: 16}}>{item.carOwner}</Text>
+                            <View style={{fontWeight: 'bold', fontSize: 16, flexDirection: 'row', flexWrap:'wrap', justifyContent: 'space-between', alignItems: 'space-around'}}>
+                                <Text>{item.carOwner}</Text>
+                                <Text>{item.category}</Text>
+                            </View>
                             <Text style={{fontSize: 14, color: grey600}}>{item.address}</Text>
                         </View>
                         <View style={{flex: 3, marginLeft: 15, backgroundColor: grey50}}>
@@ -119,21 +126,24 @@ export default createAppContainer(HomeNavigator)
 Home.navigationOptions = ({navigation}) => ({
     headerTintColor: 'rgba(255,255,255,0.8)',
     headerTitle: 'Nhà xe',
-    headerBackground: (
-        <LinearGradient
-            colors={['#4cbdd7', '#3378C3']}
-            start={{x: 0, y: 1}}
-            end={{x: 1, y: 1}}
-            style={{flex: 1}}
-        />
-    ),
+    headerStyle:{
+        backgroundColor: '#2196f3'
+    } ,
+    // headerBackground: (
+    //     <LinearGradient
+    //         colors={['#4cbdd7', '#3378C3']}
+    //         start={{x: 0, y: 1}}
+    //         end={{x: 1, y: 1}}
+    //         style={{flex: 1}}
+    //     />
+    // ),
     headerRight: (
         <TouchableOpacity onPress={() => navigation.navigate('Search')}>
             <Ionicons name="ios-search" size={25} color="white"/>
         </TouchableOpacity>
     ),
     headerRightContainerStyle: {
-        paddingRight: 10
+        paddingRight: 15
     },
 })
 
