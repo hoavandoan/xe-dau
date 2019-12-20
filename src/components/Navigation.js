@@ -1,11 +1,8 @@
 import React from 'react';
 import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
 import {createAppContainer} from 'react-navigation';
-import Search from "../screens/Search";
 import Home from "../screens/Home";
-import {LinearGradient} from "expo-linear-gradient";
-import {TouchableOpacity} from "react-native";
-import {Ionicons, AntDesign, FontAwesome,Feather, MaterialIcons} from "@expo/vector-icons";
+import {FontAwesome,Feather, MaterialIcons} from "@expo/vector-icons";
 import MailBox from "../screens/MailBox";
 import Account from "../screens/Account";
 import MapView from "../screens/MapView";
@@ -21,7 +18,6 @@ const TabNavigator = createMaterialBottomTabNavigator(
                 ),
                 activeColor: '#2196f3',
             },
-
         },
         Map: {
             screen: MapView,
