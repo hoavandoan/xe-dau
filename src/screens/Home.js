@@ -11,6 +11,7 @@ import {createAppContainer} from "react-navigation";
 import moment from 'moment'
 
 const Home = () => {
+
     const [data] = React.useState([
         {
             carOwner: 'Long Hải',
@@ -57,6 +58,7 @@ const Home = () => {
             category: 'Xe Khach'
         }
     ])
+
     const renderItem = ({item, index}) => {
         return (
             <Card key={index}>
@@ -68,12 +70,12 @@ const Home = () => {
                         />
                     </View>
                     <View style={[styles.infoCar, {flex: 1}]}>
-                        <View style={{flex: 2, marginLeft: 15}}>
-                            <View style={{fontWeight: 'bold', fontSize: 16, flexDirection: 'row', flexWrap:'wrap', justifyContent: 'space-between', alignItems: 'space-around'}}>
+                        <View style={styles.cardHeader}>
+                            <View style={styles.cardTitle}>
                                 <Text>{item.carOwner}</Text>
                                 <Text>{item.category}</Text>
                             </View>
-                            <Text style={{fontSize: 14, color: grey600}}>{item.address}</Text>
+                            <Text style={styles.cardSubTitle}>{item.address}</Text>
                         </View>
                         <View style={{flex: 3, marginLeft: 15, backgroundColor: grey50}}>
                             <Text>Nga Son di: {item.timeStart}</Text>
@@ -106,14 +108,16 @@ const Home = () => {
 const HomeNavigator = createStackNavigator(
     {
         Home: Home,
-        Search: Search
+        Search: {
+            screen: Search,
+        }
     },
     {
         initialRouteName: 'Home',
         /* The header config from HomeScreen is now here */
         defaultNavigationOptions: {
             headerStyle: {
-                backgroundColor: '#f4511e',
+                backgroundColor: '#2196f3',
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
@@ -158,6 +162,21 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         flexDirection: 'row'
     },
+    cardHeader:{
+        flex: 2,
+        marginLeft: 15
+    },
+    cardTitle:{
+        fontWeight: 'bold',
+        fontSize: 16,
+        flexDirection: 'row',
+        flexWrap:'wrap',
+        justifyContent: 'space-between',
+    },
+    cardSubTitle:{
+        fontSize: 14,
+        color: grey600
+    },
     cardImage: {
         width: '35%',
         height: '100%',
@@ -174,5 +193,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'flex-end',
         justifyContent: 'flex-end'
-    }
+    },
+
 });
