@@ -1,44 +1,23 @@
-import * as React from 'react';
-import { View, Text, Button, Image } from 'react-native';
-import { NavigationNativeContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import React from 'react';
+import {View, Text} from "react-native";
+import {
+    createStackNavigator
+} from 'react-navigation-stack';
+import {createAppContainer} from 'react-navigation';
 
-const Stack = createStackNavigator();
-
-function HomeScreen() {
+const MailBox = () => {
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Hộp thư góp ý</Text>
+        <View>
+            <Text>Mail Box</Text>
         </View>
     );
+};
+
+MailBox.navigationOptions = {
+    headerStyle: {
+        backgroundColor: '#226557',
+    },
+    tabBarLabel: 'Settings!',
 }
-
-function MailBox() {
-    return (
-        <NavigationNativeContainer>
-            <Stack.Navigator>
-                <Stack.Screen
-                    name="Home"
-                    component={HomeScreen}
-                    options={{
-                        headerTitle: 'Mail Box',
-                        headerRight: () => (
-                            <Button
-                                onPress={() => alert('This is a button!')}
-                                title="Info"
-                                color="#00cc00"
-                            />
-                        ),
-                        headerTintColor: 'black',
-                        headerStyle: {
-                            backgroundColor:'#226557'
-                        }
-
-                    }}
-                />
-            </Stack.Navigator>
-        </NavigationNativeContainer>
-    );
-}
-
-export default MailBox;
+let Mail = createStackNavigator({MailBox});
+export default createAppContainer(Mail);

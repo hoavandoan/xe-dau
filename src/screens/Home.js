@@ -19,7 +19,11 @@ function HomeStackScreen() {
                         headerStyle: {
                             backgroundColor: '#2196f3',
                             shadowOpacity: 0,
-                            borderBottomWidth: 0,
+                            shadowOffset: {
+                                height: 0,
+                            },
+                            shadowRadius: 0,
+                            elevation: 0
                         },
                         headerTintColor: '#fff',
                         headerTitleStyle: {

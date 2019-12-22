@@ -91,8 +91,7 @@ const ListCar = () => {
     }
     return (
         <View style={styles.container}>
-
-            <View style={{width: '100%', height: '100%', backgroundColor: grey200, borderTopStartRadius: 15, borderTopEndRadius: 15}}>
+            <View style={styles.backgroundList}>
                 <FlatList
                     data={data}
                     renderItem={renderItem}
@@ -108,6 +107,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#2196f3',
+        elevation: 0
     },
     card: {
         height: 150,
@@ -147,5 +147,11 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
         justifyContent: 'flex-end'
     },
-
+    backgroundList:{
+        width: '100%',
+        height: '100%',
+        backgroundColor: grey200,
+        borderTopStartRadius: 15,
+        borderTopEndRadius: 15
+    }
 });
