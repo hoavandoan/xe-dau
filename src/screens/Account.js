@@ -6,6 +6,7 @@ import {
     createStackNavigator
 } from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
+import {colors} from "../configs/theme";
 
 
 const Account = () => {
@@ -21,7 +22,7 @@ export default createAppContainer(AccountStack)
 
 Account.navigationOptions = {
     headerStyle: {
-        backgroundColor: '#ffc107',
+        backgroundColor: colors.account,
     },
 }
 //

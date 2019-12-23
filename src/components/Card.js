@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Surface} from "react-native-paper";
+import {colors, Constants, Style} from "../configs/theme";
 
 const Cards = ({children}) => {
     return (
@@ -23,11 +24,10 @@ const styles = StyleSheet.create({
         padding: 15,
         marginBottom: 0,
         flex: 1,
-        borderTopEndRadius: 15,
-        borderTopStartRadius: 15,
-        borderBottomStartRadius: 15,
-        borderBottomEndRadius: 15,
-        backgroundColor: '#fff',
+        borderRadius: Constants.borderRadius,
+        backgroundColor: colors.white,
         shadowOpacity: 0.1,
+        height: 150,
+        ...Style.shadow
     },
 });

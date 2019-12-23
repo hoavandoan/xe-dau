@@ -1,24 +1,24 @@
 import React from 'react';
-import {View, Text} from "react-native";
+import {View,Text} from "react-native";
 import {
     createStackNavigator
 } from 'react-navigation-stack';
 import {createAppContainer , SafeAreaView} from 'react-navigation';
 import {colors} from "../configs/theme";
 
-const MailBox = () => {
+const Favorite = () => {
     return (
-        <View style={{flex: 1}}>
-            <Text>Mail Box</Text>
+        <View>
+            <Text>Favorite</Text>
         </View>
     );
 };
 
-MailBox.navigationOptions = {
+Favorite.navigationOptions = {
     headerStyle: {
-        backgroundColor: colors.mail,
+        backgroundColor: colors.favorite,
     },
     tabBarLabel: 'Settings!',
 }
-let Mail = createStackNavigator({MailBox});
-export default createAppContainer(Mail);
+let Farv = createStackNavigator({Favorite});
+export default createAppContainer(Farv);

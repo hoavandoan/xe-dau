@@ -6,6 +6,8 @@ import {FontAwesome,Feather, MaterialIcons} from "@expo/vector-icons";
 import MailBox from "../screens/MailBox";
 import Account from "../screens/Account";
 import MapView from "../screens/MapView";
+import {colors} from "../configs/theme";
+import Favorite from "../screens/Favorite";
 
 const TabNavigator = createMaterialBottomTabNavigator(
     {
@@ -16,17 +18,17 @@ const TabNavigator = createMaterialBottomTabNavigator(
                 tabBarIcon: ({tintColor}) => (
                     <FontAwesome name="home" color={tintColor} size={20}/>
                 ),
-                activeColor: '#2196f3',
+                activeColor: colors.home,
             },
         },
-        Map: {
-            screen: MapView,
+        Favorite: {
+            screen: Favorite,
             navigationOptions: {
-                title: 'Vị trí',
+                title: 'Yêu thích',
                 tabBarIcon: ({tintColor}) => (
                     <Feather name="map-pin" color={tintColor} size={20}/>
                 ),
-                activeColor: '#3f51b5',
+                activeColor: colors.favorite,
             },
         },
         MailBox: {
@@ -35,7 +37,8 @@ const TabNavigator = createMaterialBottomTabNavigator(
                 title: 'Hộp thư',
                 tabBarIcon: ({tintColor}) => (
                     <Feather name="mail" color={tintColor} size={20}/>
-                )
+                ),
+                activeColor: colors.mail
             }
         },
         Account: {
@@ -45,15 +48,14 @@ const TabNavigator = createMaterialBottomTabNavigator(
                 tabBarIcon: ({tintColor}) => (
                     <MaterialIcons name="account-circle" color={tintColor} size={20}/>
                 ),
-                activeColor: '#ffc107',
+                activeColor: colors.account,
             }
         },
     },
     {
         initialRouteName: 'Home',
-        activeColor: '#226557',
-        inactiveColor: '#aaaaaa',
-        barStyle: {backgroundColor: '#FFFFFF'},
+        inactiveColor: colors.disable,
+        barStyle: {backgroundColor: colors.white},
     }
 )
 export default createAppContainer(TabNavigator)
