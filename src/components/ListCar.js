@@ -67,7 +67,18 @@ const ListCar = ({navigation}) => {
             category: 'Xe Khach'
         }
     ])
-
+    React.useEffect(()=>{
+        const spreadsheetId = '1dWcQSzmeFpVPNno01WXovj6072xW0JbRQzg0IVjYFbQ'
+        const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Sheet1!E4:G5?key=AIzaSyA-UXoZqJhkIXOK0RaGOQXAubeX1QXAUSM`
+        fetch(url,{
+            method: "GET",
+            headers: {
+                "X-Auth-Token": "AIzaSyA-UXoZqJhkIXOK0RaGOQXAubeX1QXAUSM"
+            }
+        }).then(response=> response.json()).then(jsonData=>{
+            console.log('datasss', jsonData)
+        })
+    },[])
     // const renderItem = ({item, index}) => {
     //     return (
     //         <View key={index}>
@@ -154,7 +165,7 @@ const ListCar = ({navigation}) => {
                                             <Text style={{fontSize: 13}}>Nga Sơn</Text>
                                             <Text style={{fontSize: 13}}>Ha Nội</Text>
                                         </View>
-                                        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                                        <View style={{flexDirection: 'row', justifyContent: 'space-between', margin: 5}}>
                                             <View>
                                                 <Text style={{fontSize: 11}}>11h:30</Text>
                                             </View>
@@ -165,7 +176,7 @@ const ListCar = ({navigation}) => {
                                                 <Text style={{fontSize: 11}}>14h:30</Text>
                                             </View>
                                         </View>
-                                        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                                        <View style={{flexDirection: 'row', justifyContent: 'space-between', margin: 5}}>
                                             <View>
                                                 <Text style={{fontSize: 11}}>9h</Text>
                                             </View>
@@ -236,36 +247,21 @@ const ListCar = ({navigation}) => {
                     </View>
                 </ScrollView>
             </View>
-            {/*<Modal*/}
-            {/*    isVisible={isVisible}*/}
-            {/*    style={{justifyContent: 'flex-end',margin: 0}}*/}
-            {/*    swipeDirection={'down'}*/}
-            {/*    hideModalContentWhileAnimating={true}*/}
-            {/*    useNativeDriver={true}*/}
-            {/*    propagateSwipe={true}*/}
-            {/*>*/}
-            {/*    <View style={{ height:'60%',  backgroundColor:'white'}}>*/}
-            {/*        <CarDetail/>*/}
-
-            {/*        <Button title="Hide modal" onPress={()=>setVisible(!isVisible)} />*/}
-            {/*    </View>*/}
-            {/*</Modal>*/}
             <Modalize
                 ref={modalRef}
                 adjustToContentHeight
                 modalStyle={styles.modal}
                 // modalHeight={350}
-                overlayStyle={styles.overlay}
                 handleStyle={styles.handle}
                 handlePosition="inside"
-                openAnimationConfig={{
-                    timing: { duration: 400 },
-                    spring: { speed: 200, bounciness: 10 },
-                }}
-                closeAnimationConfig={{
-                    timing: { duration: 400 },
-                    spring: { speed: 200, bounciness: 10 },
-                }}
+                // openAnimationConfig={{
+                //     timing: { duration: 400 },
+                //     spring: { speed: 100, bounciness: 10 },
+                // }}
+                // closeAnimationConfig={{
+                //     timing: { duration: 400 },
+                //     spring: { speed: 100, bounciness: 10 },
+                // }}
             >
                 <CarDetail closeModal={close}/>
             </Modalize>
@@ -344,13 +340,8 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 10,
     },
 
-    overlay: {
-        backgroundColor: 'rgba(41, 36, 107, 0.9)',
-    },
-
     handle: {
         width: 150,
-        backgroundColor: '#b0afbc',
-        borderRadius: 20
+        backgroundColor: '#b0afbc'
     },
 });

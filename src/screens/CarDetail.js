@@ -23,8 +23,8 @@ const CarDetail = ({navigation, closeModal}) => {
             <Text>Giá vé: 80.000 VND</Text>
             <Text>Lộ trình di chuyển: Nga bach - Cau kenh - Nga Truong - Bim Son - Cao toc - Giap Bat - Truong Chinh - Lang - Tran Quoc Hoan - Nghia Trang Mai Dich - Nha van Hoa Bac tu Liem</Text>
             <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-                <Button title={'Đóng'} onPress={closeModal}/>
-                <Button title={'Gọi ngay'} onPress={() => callPhone('0901764393')}/>
+                <Button title={'Đóng'} onPress={closeModal} style={{backgroundColor: colors.disable, marginRight:12}}/>
+                <Button title={'Gọi ngay'} onPress={() => callPhone('0901764393')} style={{backgroundColor: colors.access}}/>
             </View>
         </View>
     );
