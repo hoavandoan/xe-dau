@@ -7,12 +7,17 @@ import {
 } from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
 import {colors} from "../configs/theme";
+import {Auth} from "aws-amplify";
+import {useStore} from "../store/useStore";
 
 
 const Account = () => {
+    const {state} = useStore()
+    console.log(state)
     return (
         <View>
-            <Text>Account</Text>
+            <Text>{state.user.name}</Text>
+            <Button title='Log out' onPress={()=>Auth.signOut()}/>
         </View>
     );
 };

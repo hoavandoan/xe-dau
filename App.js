@@ -1,19 +1,19 @@
 import React,{useEffect} from 'react';
 import {View} from 'react-native';
-import Amplify from 'aws-amplify';
+import Amplify,{Cache} from 'aws-amplify';
 import config from './aws-exports';
-import { withAuthenticator } from 'aws-amplify-react-native'
 import ContainerNavigation from "./src/navigations/ContainerNavigation";
+import {StoreProvider} from './src/store/useStore';
 import { Linking } from 'expo';
 
 Amplify.configure(config);
 
 function App() {
-    const prefix = Linking.makeUrl('/');
+
     return (
-            <View style={{flex: 1}}>
-                <ContainerNavigation uriPrefix={prefix} />
-            </View>
+            <StoreProvider style={{flex: 1}}>
+                <ContainerNavigation/>
+            </StoreProvider>
 
     );
 }

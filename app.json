@@ -2,7 +2,6 @@
   "expo": {
     "name": "xe",
     "slug": "xe-dau",
-    "scheme": "xedau",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
@@ -26,6 +25,7 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "facebookScheme": "fb490376594797525"
   }
 }

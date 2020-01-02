@@ -7,11 +7,18 @@ import {NavigationNativeContainer,} from "@react-navigation/native";
 import ListCar from "../components/ListCar";
 import {Constants, Style} from "../configs/theme";
 import CarDetail from "./CarDetail";
+import {Auth} from "aws-amplify";
+import {useStore} from "../store/useStore";
+import {getInfoUser} from "../common/checkUser";
 
 const Tab = createStackNavigator()
 const MainStack = createStackNavigator();
 
 function MainStackScreen({navigation}) {
+    const {dispatch} = useStore()
+    useEffect(() => {
+        // getInfoUser(navigation,dispatch)
+    }, []);
     return (
         <MainStack.Navigator mode="modal">
             <MainStack.Screen name="Home"

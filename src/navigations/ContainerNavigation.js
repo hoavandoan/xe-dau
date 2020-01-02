@@ -8,7 +8,6 @@ const containerNavigation = createSwitchNavigator(
     {
         AuthLoading: {
             screen: AuthLoading,
-            path: 'loading'
         },
         AuthNavigation: {
             screen: AuthNavigation

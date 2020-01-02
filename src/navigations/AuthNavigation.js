@@ -1,6 +1,6 @@
 import React from 'react';
 import {createSwitchNavigator, createAppContainer} from 'react-navigation'
-import SignIn from "../components/SignIn";
+import SignIn from "../screens/SignIn";
 import SignUp from "../screens/SignUp";
 import Verify from "../screens/Verify";
 import PasswordRecovery from "../screens/PasswordRecovery";
