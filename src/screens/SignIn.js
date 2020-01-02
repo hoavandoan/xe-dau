@@ -14,6 +14,7 @@ const SignIn = ({navigation}) => {
     const [isLockEye, setIsLockEye] = useState(false);
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [isLogin,setIsLogin] = useState(false)
     const {state, dispatch} = useStore()
 
     async function signInFacebook() {
@@ -43,26 +44,27 @@ const SignIn = ({navigation}) => {
                         token
                     }
                 })
-                Auth.federatedSignIn('facebook', {token, expires_at: expires}, {name: resJson.id})
+                if(resJson) navigation.navigate('AppNavigation')
+                return Auth.federatedSignIn('facebook', {token, expires_at: expires}, {name: resJson.id})
                     .then(credentials => {
-                        Auth.currentAuthenticatedUser().then(user => console.log(user));
+                        return Auth.currentAuthenticatedUser()
                     }).catch(e => {
                     console.log(e);
                 });
 
             } else {
                 // type === 'cancel'
-                navigation.navigate('AuthLoading')
+                return  navigation.navigate('AuthLoading')
             }
         } catch ({message}) {
-            alert(`Facebook Login Error: ${message}`);
+            return alert(`Facebook Login Error: ${message}`);
         }
     }
-
     return (
         <KeyboardShift>
             {() => (
                 <View style={styles.container}>
+
                     <SafeAreaView>
                         <View>
                             <Text style={styles.title}>Đăng nhập</Text>
