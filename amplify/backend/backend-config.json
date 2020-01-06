@@ -1,0 +1,9 @@
+{
+    "auth": {
+        "xedau7a694736": {
+            "service": "Cognito",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": []
+        }
+    }
+}

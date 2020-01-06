@@ -1,0 +1,22 @@
+{
+    "authxedau": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-xe-dau-authxedau-110616-authRole",
+            "UnauthRoleArn": "arn:aws:iam::907871803484:role/amplify-xe-dau-authxedau-110616-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::907871803484:role/amplify-xe-dau-authxedau-110616-authRole",
+            "Region": "ap-northeast-1",
+            "DeploymentBucketName": "amplify-xe-dau-authxedau-110616-deployment",
+            "UnauthRoleName": "amplify-xe-dau-authxedau-110616-unauthRole",
+            "StackName": "amplify-xe-dau-authxedau-110616",
+            "StackId": "arn:aws:cloudformation:ap-northeast-1:907871803484:stack/amplify-xe-dau-authxedau-110616/3b6fd790-2d15-11ea-85e4-0e0119a58df2",
+            "AmplifyAppId": "d3du424we3i7vn"
+        },
+        "categories": {
+            "auth": {
+                "xedau7a694736": {
+                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Facebook\",\"client_id\":\"490376594797525\",\"client_secret\":\"43557e3023916a0a8624a28eed60fcb2\"}]"
+                }
+            }
+        }
+    }
+}
